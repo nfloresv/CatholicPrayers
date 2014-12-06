@@ -12,17 +12,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Santo del Día"
-            android:id="@+id/saintOfDayLabelTV"
+            android:text="@string/saintOfTheDay"
+            android:id="@+id/saintOfTheDayLabelTV"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/saintOfDayTV"
-            android:layout_alignBottom="@+id/saintOfDayLabelTV"
-            android:layout_toRightOf="@+id/saintOfDayLabelTV"
+            android:text="@string/loading"
+            android:id="@+id/saintOfTheDayTV"
+            android:layout_alignBottom="@+id/saintOfTheDayLabelTV"
+            android:layout_toRightOf="@+id/saintOfTheDayLabelTV"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_marginLeft="10dp"/>
@@ -31,9 +31,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Evangelio"
+            android:text="@string/gospel"
             android:id="@+id/gospelTitleLabelTV"
-            android:layout_below="@+id/saintOfDayLabelTV"
+            android:layout_below="@+id/saintOfTheDayLabelTV"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="20dp"/>
@@ -42,10 +42,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
+            android:text="@string/loading"
             android:id="@+id/gospelTitleTV"
             android:layout_alignBottom="@+id/gospelTitleLabelTV"
-            android:layout_toRightOf="@+id/saintOfDayLabelTV"
+            android:layout_toRightOf="@+id/saintOfTheDayLabelTV"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_marginLeft="10dp"/>
@@ -53,7 +53,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="New Text"
+            android:text="@string/loading"
             android:id="@+id/gospelTextTV"
             android:layout_below="@+id/gospelTitleLabelTV"
             android:layout_alignParentLeft="true"

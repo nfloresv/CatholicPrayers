@@ -1,12 +1,16 @@
 package com.flores.nico.catholicprayers;
 
-import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.flores.nico.utils.VolleyClient;
 
 
 /**
@@ -18,6 +22,7 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class GospelFragment extends Fragment {
+    private VolleyClient volley;
     /*// TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -58,13 +63,64 @@ public class GospelFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }*/
+        volley = VolleyClient.getInstance(getActivity().getApplicationContext());
     }
 
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container,
                               Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_gospel, container, false);
+        final View layout = inflater.inflate(R.layout.fragment_gospel, container, false);
+
+        volley.getSaintOfTheDay(
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse (String response) {
+                        TextView saint = (TextView) layout.findViewById(R.id.saintOfTheDayTV);
+                        saint.setText(response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse (VolleyError error) {
+                        Toast.makeText(getActivity().getApplicationContext(), error.toString(), Toast.LENGTH_LONG).show();
+                    }
+                }
+        );
+        volley.getGospelTitle(
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse (String response) {
+                        TextView gospel_title = (TextView) layout.findViewById(R.id
+                                .gospelTitleTV);
+                        gospel_title.setText(response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse (VolleyError error) {
+                        Toast.makeText(getActivity().getApplicationContext(), error.toString(), Toast.LENGTH_LONG).show();
+                    }
+                }
+        );
+        volley.getGospel(
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse (String response) {
+                        TextView gospel = (TextView) layout.findViewById(R.id
+                                .gospelTextTV);
+                        gospel.setText(response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse (VolleyError error) {
+                        Toast.makeText(getActivity().getApplicationContext(), error.toString(), Toast.LENGTH_LONG).show();
+                    }
+                }
+        );
+
+        return layout;
     }
 
     /*// TODO: Rename method, update argument and hook method into UI event
