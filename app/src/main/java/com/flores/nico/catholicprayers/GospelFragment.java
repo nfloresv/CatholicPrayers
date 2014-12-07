@@ -12,44 +12,19 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.flores.nico.utils.VolleyClient;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.TextNode;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link GospelFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link GospelFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.List;
+
+
 public class GospelFragment extends Fragment {
     private VolleyClient volley;
-    /*// TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";*/
 
-    /*// TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;*/
 
-    /*private OnFragmentInteractionListener mListener;*/
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment GospelFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static GospelFragment newInstance (/*String param1, String param2*/) {
-        GospelFragment fragment = new GospelFragment();
-        /*Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);*/
-        return fragment;
+    public static GospelFragment newInstance () {
+        return new GospelFragment();
     }
 
     public GospelFragment () {
@@ -59,10 +34,6 @@ public class GospelFragment extends Fragment {
     @Override
     public void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /*if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }*/
         volley = VolleyClient.getInstance(getActivity().getApplicationContext());
     }
 
@@ -70,96 +41,92 @@ public class GospelFragment extends Fragment {
     public View onCreateView (LayoutInflater inflater, ViewGroup container,
                               Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final View layout = inflater.inflate(R.layout.fragment_gospel, container, false);
+        View layout = inflater.inflate(R.layout.fragment_gospel, container, false);
 
-        volley.getSaintOfTheDay(
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse (String response) {
-                        TextView saint = (TextView) layout.findViewById(R.id.saintOfTheDayTV);
-                        saint.setText(response);
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse (VolleyError error) {
-                        Toast.makeText(getActivity().getApplicationContext(), error.toString(), Toast.LENGTH_LONG).show();
-                    }
-                }
-        );
-        volley.getGospelTitle(
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse (String response) {
-                        TextView gospel_title = (TextView) layout.findViewById(R.id
-                                .gospelTitleTV);
-                        gospel_title.setText(response);
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse (VolleyError error) {
-                        Toast.makeText(getActivity().getApplicationContext(), error.toString(), Toast.LENGTH_LONG).show();
-                    }
-                }
-        );
-        volley.getGospel(
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse (String response) {
-                        TextView gospel = (TextView) layout.findViewById(R.id
-                                .gospelTextTV);
-                        gospel.setText(response);
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse (VolleyError error) {
-                        Toast.makeText(getActivity().getApplicationContext(), error.toString(), Toast.LENGTH_LONG).show();
-                    }
-                }
-        );
+        Response.ErrorListener errorListener = new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse (VolleyError error) {
+                Toast.makeText(getActivity().getApplicationContext(), error.toString(),
+                        Toast.LENGTH_LONG).show();
+            }
+        };
+
+        getSaintOfDay(layout, errorListener);
+        getGospelTitle(layout, errorListener);
+        getGospelText(layout, errorListener);
 
         return layout;
     }
 
-    /*// TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed (Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+    @Override
+    public void onStop () {
+        super.onStop();
+        volley.cancel();
+    }
+
+    private void getSaintOfDay (View layout, Response.ErrorListener errorListener) {
+        final TextView saint = (TextView) layout.findViewById(R.id.saintOfTheDayTV);
+        String saintOfDay = volley.getSaintOfTheDay(
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse (String response) {
+                        Document doc = Jsoup.parse(response);
+                        String result = doc.text();
+                        saint.setText(result);
+                    }
+                }, errorListener
+        );
+        if (saintOfDay != null) {
+            Document doc = Jsoup.parse(saintOfDay);
+            String result = doc.text();
+            saint.setText(result);
         }
     }
 
-    @Override
-    public void onAttach (Activity activity) {
-        super.onAttach(activity);
-        try {
-            mListener = (OnFragmentInteractionListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement OnFragmentInteractionListener");
+    private void getGospelTitle (View layout, Response.ErrorListener errorListener) {
+        final TextView gospel_title = (TextView) layout.findViewById(R.id.gospelTitleTV);
+        String gospelTitle = volley.getGospelTitle(
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse (String response) {
+                        Document doc = Jsoup.parse(response);
+                        String result = doc.text();
+                        gospel_title.setText(result);
+                    }
+                }, errorListener
+        );
+        if (gospelTitle != null) {
+            Document doc = Jsoup.parse(gospelTitle);
+            String result = doc.text();
+            gospel_title.setText(result);
         }
     }
 
-    @Override
-    public void onDetach () {
-        super.onDetach();
-        mListener = null;
-    }*/
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    /*public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        public void onFragmentInteraction (Uri uri);
-    }*/
+    private void getGospelText (View layout, Response.ErrorListener errorListener) {
+        final TextView gospel = (TextView) layout.findViewById(R.id.gospelTextTV);
+        String gospelText = volley.getGospel(
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse (String response) {
+                        Document doc = Jsoup.parse(response);
+                        List<TextNode> nodes = doc.body().textNodes();
+                        String result = "";
+                        for (TextNode node : nodes) {
+                            result += node.text() + "\n";
+                        }
+                        gospel.setText(result);
+                    }
+                }, errorListener
+        );
+        if (gospelText != null) {
+            Document doc = Jsoup.parse(gospelText);
+            List<TextNode> nodes = doc.body().textNodes();
+            String result = "";
+            for (TextNode node : nodes) {
+                result += node.text() + "\n";
+            }
+            gospel.setText(result);
+        }
+    }
 
 }
