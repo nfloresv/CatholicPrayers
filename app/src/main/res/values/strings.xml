@@ -20,6 +20,8 @@
     <string name="edit_prayer">Edit Prayer</string>
     <string name="new_prayer_condensed">New</string>
     <string name="edit_prayer_condensed">Edit</string>
+    <string name="delete_prayer">Delete Prayer</string>
+    <string name="delete_prayer_condensed">Delete</string>
     <string name="prayer_title">Title</string>
     <string name="prayer_text">Prayer</string>
     <string name="save_prayer_success">Prayer saved</string>
