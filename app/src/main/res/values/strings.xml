@@ -18,10 +18,10 @@
     <string name="no_prayer_id">Prayer not found</string>
     <string name="new_prayer">New Prayer</string>
     <string name="edit_prayer">Edit Prayer</string>
-    <string name="title_activity_edit_prayer">Edit Prayer</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="prayer_title_activity_edit_prayer">Title</string>
-    <string name="prayer_text_activity_edit_prayer">Prayer</string>
+    <string name="new_prayer_condensed">New</string>
+    <string name="edit_prayer_condensed">Edit</string>
+    <string name="prayer_title">Title</string>
+    <string name="prayer_text">Prayer</string>
     <string name="save_prayer_success">Prayer saved</string>
     <string name="save_prayer_error">Error saving Prayer</string>
 

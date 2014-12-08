@@ -5,5 +5,7 @@
     <string name="title_gospel">Gospel</string>
     <string name="title_all_prayers">All Prayers</string>
     <string name="title_view_prayer">Prayer</string>
+    <string name="title_activity_edit_prayer">Edit Prayer</string>
+    <string name="title_activity_new_prayer">New Prayer</string>
     
 </resources>
