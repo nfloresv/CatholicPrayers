@@ -65,7 +65,7 @@ public class GospelFragment extends Fragment {
     }
 
     private void getSaintOfDay (View layout, Response.ErrorListener errorListener) {
-        final TextView saint = (TextView) layout.findViewById(R.id.saintOfTheDayTV);
+        final TextView saint = (TextView) layout.findViewById(R.id.saint_of_the_day_tv_fragment_gospel);
         String saintOfDay = volley.getSaintOfTheDay(
                 new Response.Listener<String>() {
                     @Override
@@ -84,7 +84,7 @@ public class GospelFragment extends Fragment {
     }
 
     private void getGospelTitle (View layout, Response.ErrorListener errorListener) {
-        final TextView gospel_title = (TextView) layout.findViewById(R.id.gospelTitleTV);
+        final TextView gospel_title = (TextView) layout.findViewById(R.id.gospel_title_tv_fragment_gospel);
         String gospelTitle = volley.getGospelTitle(
                 new Response.Listener<String>() {
                     @Override
@@ -103,7 +103,7 @@ public class GospelFragment extends Fragment {
     }
 
     private void getGospelText (View layout, Response.ErrorListener errorListener) {
-        final TextView gospel = (TextView) layout.findViewById(R.id.gospelTextTV);
+        final TextView gospel = (TextView) layout.findViewById(R.id.gospel_text_tv_fragment_gospel);
         String gospelText = volley.getGospel(
                 new Response.Listener<String>() {
                     @Override

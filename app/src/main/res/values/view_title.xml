@@ -2,6 +2,8 @@
 <resources>
 
     <string name="app_name">Catholic Prayers</string>
-    <string name="gospel_title">Gospel</string>
+    <string name="title_gospel">Gospel</string>
+    <string name="title_all_prayers">All Prayers</string>
+    <string name="title_view_prayer">Prayer</string>
     
 </resources>

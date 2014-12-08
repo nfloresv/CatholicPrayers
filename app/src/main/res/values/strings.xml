@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!--Common-->
+    <!-- Common -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
     <string name="loading">Loading…</string>
-
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
     <string name="action_example">Example action</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btn_save">Save</string>
 
-    <!--Gospel Fragment-->
+    <!-- Gospel Fragment -->
     <string name="saintOfTheDay">Saint of the Day</string>
     <string name="gospel">Gospel</string>
+
+    <!-- Prayers -->
+    <string name="empty_prayer_list">The list of Prayers is empty</string>
+    <string name="no_prayer_id">Prayer not found</string>
+    <string name="new_prayer">New Prayer</string>
+    <string name="edit_prayer">Edit Prayer</string>
+    <string name="title_activity_edit_prayer">Edit Prayer</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="prayer_title_activity_edit_prayer">Title</string>
+    <string name="prayer_text_activity_edit_prayer">Prayer</string>
+    <string name="save_prayer_success">Prayer saved</string>
+    <string name="save_prayer_error">Error saving Prayer</string>
 
 </resources>

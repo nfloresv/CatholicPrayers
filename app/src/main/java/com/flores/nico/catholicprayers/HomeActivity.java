@@ -16,7 +16,6 @@ public class HomeActivity extends ActionBarActivity
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
-
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
@@ -45,7 +44,13 @@ public class HomeActivity extends ActionBarActivity
             fragmentManager.beginTransaction()
                     .replace(R.id.container, GospelFragment.newInstance())
                     .commit();
-            mTitle = getString(R.string.gospel_title);
+            mTitle = getString(R.string.title_gospel);
+        }
+        else if (position == 1) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, PrayerListFragment.newInstance())
+                    .commit();
+            mTitle = getString(R.string.title_all_prayers);
         }
     }
 

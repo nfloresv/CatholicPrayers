@@ -13,27 +13,29 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/saintOfTheDay"
-            android:id="@+id/saintOfTheDayLabelTV"
+            android:id="@+id/saint_of_the_day_label_tv_fragment_gospel"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/loading"
-            android:id="@+id/saintOfTheDayTV"
-            android:layout_toRightOf="@+id/saintOfTheDayLabelTV"
+            android:id="@+id/saint_of_the_day_tv_fragment_gospel"
+            android:layout_toRightOf="@+id/saint_of_the_day_label_tv_fragment_gospel"
+            android:layout_toEndOf="@+id/saint_of_the_day_label_tv_fragment_gospel"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_marginLeft="10dp"
-            android:layout_alignBaseline="@+id/saintOfTheDayLabelTV"/>
+            android:layout_marginStart="10dp"
+            android:layout_alignBaseline="@+id/saint_of_the_day_label_tv_fragment_gospel"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/gospel"
-            android:id="@+id/gospelTitleLabelTV"
-            android:layout_below="@+id/saintOfTheDayTV"
+            android:id="@+id/gospel_title_label_tv_fragment_gospel"
+            android:layout_below="@+id/saint_of_the_day_tv_fragment_gospel"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="20dp"/>
@@ -43,19 +45,21 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/loading"
-            android:id="@+id/gospelTitleTV"
-            android:layout_alignBottom="@+id/gospelTitleLabelTV"
-            android:layout_toRightOf="@+id/saintOfTheDayLabelTV"
+            android:id="@+id/gospel_title_tv_fragment_gospel"
+            android:layout_alignBottom="@+id/gospel_title_label_tv_fragment_gospel"
+            android:layout_toRightOf="@+id/saint_of_the_day_label_tv_fragment_gospel"
+            android:layout_toEndOf="@+id/saint_of_the_day_label_tv_fragment_gospel"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/loading"
-            android:id="@+id/gospelTextTV"
-            android:layout_below="@+id/gospelTitleLabelTV"
+            android:id="@+id/gospel_text_tv_fragment_gospel"
+            android:layout_below="@+id/gospel_title_label_tv_fragment_gospel"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="10dp"/>
