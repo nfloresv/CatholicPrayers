@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Prayer -->
+    <string name="prayer_id">com.flores.nico.catholicprayers.PRAYER_ID</string>
+    <integer name="new_prayer_activity_request_code">0x1</integer>
+    <integer name="edit_prayer_activity_request_code">0x2</integer>
+    <integer name="view_prayer_activity_request_code">0x3</integer>
+
+    <!-- Category -->
+    <string name="category_id">com.flores.nico.catholicprayers.CATEGORY_ID</string>
+    <integer name="new_category_activity_request_code">0x4</integer>
+    <integer name="edit_category_activity_request_code">0x5</integer>
+    <integer name="view_category_activity_request_code">0x6</integer>
+
+</resources>

@@ -27,4 +27,17 @@
     <string name="save_prayer_success">Prayer saved</string>
     <string name="save_prayer_error">Error saving Prayer</string>
 
+    <!-- Categories -->
+    <string name="empty_category_list">The list of Categories is empty</string>
+    <string name="no_category_id">Category not found</string>
+    <string name="new_category">New Category</string>
+    <string name="edit_category">Edit Category</string>
+    <string name="new_category_condensed">New</string>
+    <string name="edit_category_condensed">Edit</string>
+    <string name="delete_category">Delete Category</string>
+    <string name="delete_category_condensed">Delete</string>
+    <string name="category_name">Category Name</string>
+    <string name="save_category_success">Category saved</string>
+    <string name="save_category_error">Error saving Category</string>
+
 </resources>

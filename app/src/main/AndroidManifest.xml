@@ -57,6 +57,30 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.flores.nico.catholicprayers.HomeActivity" />
         </activity>
+        <activity
+            android:name="com.flores.nico.catholicprayers.ViewCategoryActivity"
+            android:label="@string/title_activity_view_category"
+            android:parentActivityName="com.flores.nico.catholicprayers.HomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.flores.nico.catholicprayers.HomeActivity" />
+        </activity>
+        <activity
+            android:name="com.flores.nico.catholicprayers.EditCategoryActivity"
+            android:label="@string/title_activity_edit_category"
+            android:parentActivityName="com.flores.nico.catholicprayers.HomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.flores.nico.catholicprayers.HomeActivity" />
+        </activity>
+        <activity
+            android:name="com.flores.nico.catholicprayers.NewCategoryActivity"
+            android:label="@string/title_activity_new_category"
+            android:parentActivityName="com.flores.nico.catholicprayers.HomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.flores.nico.catholicprayers.HomeActivity" />
+        </activity>
     </application>
 
 </manifest>

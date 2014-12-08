@@ -7,5 +7,9 @@
     <string name="title_view_prayer">Prayer</string>
     <string name="title_activity_edit_prayer">Edit Prayer</string>
     <string name="title_activity_new_prayer">New Prayer</string>
+    <string name="title_all_categories">All Categories</string>
+    <string name="title_activity_view_category">Category</string>
+    <string name="title_activity_edit_category">Edit Category</string>
+    <string name="title_activity_new_category">NewCategoryActivity</string>
     
 </resources>

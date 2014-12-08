@@ -52,6 +52,12 @@ public class HomeActivity extends ActionBarActivity
                     .commit();
             mTitle = getString(R.string.title_all_prayers);
         }
+        else if (position == 2) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, CategoryListFragment.newInstance())
+                    .commit();
+            mTitle = getString(R.string.title_all_categories);
+        }
     }
 
     /*public void onSectionAttached (int number) {

@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.flores.nico.catholicprayers.ViewPrayerActivity">
+    <item android:id="@+id/edit_prayer_menu_item"
+          android:title="@string/edit_prayer"
+          android:titleCondensed="@string/edit_prayer_condensed"
+          android:icon="@android:drawable/ic_menu_edit"
+          android:showAsAction="withText|ifRoom"/>
+    <item android:id="@+id/delete_prayer_menu_item"
+          android:title="@string/delete_prayer"
+          android:titleCondensed="@string/delete_prayer_condensed"
+          android:showAsAction="withText|ifRoom"
+          android:icon="@android:drawable/ic_menu_delete"/>
+    <item android:id="@+id/action_settings"
+          android:title="@string/action_settings"
+          android:orderInCategory="100"
+          app:showAsAction="never"/>
+</menu>

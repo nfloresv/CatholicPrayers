@@ -3,5 +3,6 @@
     <string-array name="drawer_section">
         <item>Gospel</item>
         <item>All Prayers</item>
+        <item>Categories</item>
     </string-array>
 </resources>
