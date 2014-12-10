@@ -8,6 +8,7 @@
     <string name="loading">Loading…</string>
     <string name="action_example">Example action</string>
     <string name="btn_save">Save</string>
+    <string name="btn_acept_dialog">Ok</string>
 
     <!-- Gospel Fragment -->
     <string name="saintOfTheDay">Saint of the Day</string>
@@ -24,6 +25,8 @@
     <string name="delete_prayer_condensed">Delete</string>
     <string name="prayer_title">Title</string>
     <string name="prayer_text">Prayer</string>
+    <string name="prayer_category">Categories</string>
+    <string name="prayer_category_selection">Select category…</string>
     <string name="save_prayer_success">Prayer saved</string>
     <string name="save_prayer_error">Error saving Prayer</string>
 

@@ -1,12 +1,12 @@
 package com.flores.nico.catholicprayers;
 
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.support.v4.widget.DrawerLayout;
 
 
 public class HomeActivity extends ActionBarActivity
@@ -45,14 +45,12 @@ public class HomeActivity extends ActionBarActivity
                     .replace(R.id.container, GospelFragment.newInstance())
                     .commit();
             mTitle = getString(R.string.title_gospel);
-        }
-        else if (position == 1) {
+        } else if (position == 1) {
             fragmentManager.beginTransaction()
                     .replace(R.id.container, PrayerListFragment.newInstance())
                     .commit();
             mTitle = getString(R.string.title_all_prayers);
-        }
-        else if (position == 2) {
+        } else if (position == 2) {
             fragmentManager.beginTransaction()
                     .replace(R.id.container, CategoryListFragment.newInstance())
                     .commit();
@@ -115,15 +113,15 @@ public class HomeActivity extends ActionBarActivity
      */
     /*public static class PlaceholderFragment extends Fragment {
         *//**
-         * The fragment argument representing the section number for this
-         * fragment.
-         *//*
+     * The fragment argument representing the section number for this
+     * fragment.
+     *//*
         private static final String ARG_SECTION_NUMBER = "section_number";
 
         *//**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         *//*
+     * Returns a new instance of this fragment for the given section
+     * number.
+     *//*
         public static PlaceholderFragment newInstance (int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();

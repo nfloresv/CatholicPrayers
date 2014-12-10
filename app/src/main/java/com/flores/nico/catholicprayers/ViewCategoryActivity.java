@@ -3,8 +3,8 @@ package com.flores.nico.catholicprayers;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -53,8 +53,7 @@ public class ViewCategoryActivity extends ActionBarActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
-        }
-        else if (id == R.id.edit_prayer_menu_item) {
+        } else if (id == R.id.edit_prayer_menu_item) {
             Intent intent = new Intent(context, EditCategoryActivity.class);
             intent.putExtra(getString(R.string.category_id), category_id);
 
@@ -62,8 +61,7 @@ public class ViewCategoryActivity extends ActionBarActivity {
             startActivityForResult(intent, code);
 
             return true;
-        }
-        else if (id == R.id.delete_prayer_menu_item) {
+        } else if (id == R.id.delete_prayer_menu_item) {
             Category category = Category.findById(Category.class, category_id);
             category.delete();
             setResult(RESULT_OK);
