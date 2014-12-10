@@ -34,16 +34,16 @@ public class CategoryListFragment extends Fragment implements AbsListView.OnItem
     private ListAdapter mAdapter;
     private List<Category> categories;
 
-    public static CategoryListFragment newInstance () {
-        return new CategoryListFragment();
-    }
-
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
     public CategoryListFragment () {
         categories = Category.listAll(Category.class);
+    }
+
+    public static CategoryListFragment newInstance () {
+        return new CategoryListFragment();
     }
 
     @Override
@@ -102,8 +102,7 @@ public class CategoryListFragment extends Fragment implements AbsListView.OnItem
                         .replace(R.id.container, CategoryListFragment.newInstance())
                         .commit();
             }
-        }
-        else if (requestCode == getResources().getInteger(R.integer.view_category_activity_request_code)) {
+        } else if (requestCode == getResources().getInteger(R.integer.view_category_activity_request_code)) {
             if (resultCode == Activity.RESULT_OK) {
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, CategoryListFragment.newInstance())

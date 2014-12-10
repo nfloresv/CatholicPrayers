@@ -35,16 +35,16 @@ public class PrayerListFragment extends Fragment implements AbsListView.OnItemCl
     private ListAdapter mAdapter;
     private List<Prayer> prayers;
 
-    public static PrayerListFragment newInstance () {
-        return new PrayerListFragment();
-    }
-
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
     public PrayerListFragment () {
         prayers = Prayer.listAll(Prayer.class);
+    }
+
+    public static PrayerListFragment newInstance () {
+        return new PrayerListFragment();
     }
 
     @Override
@@ -103,8 +103,7 @@ public class PrayerListFragment extends Fragment implements AbsListView.OnItemCl
                         .replace(R.id.container, PrayerListFragment.newInstance())
                         .commit();
             }
-        }
-        else if (requestCode == getResources().getInteger(R.integer.view_prayer_activity_request_code)) {
+        } else if (requestCode == getResources().getInteger(R.integer.view_prayer_activity_request_code)) {
             if (resultCode == Activity.RESULT_OK) {
                 android.support.v4.app.FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()

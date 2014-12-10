@@ -23,12 +23,12 @@ public class GospelFragment extends Fragment {
     private VolleyClient volley;
 
 
-    public static GospelFragment newInstance () {
-        return new GospelFragment();
-    }
-
     public GospelFragment () {
         // Required empty public constructor
+    }
+
+    public static GospelFragment newInstance () {
+        return new GospelFragment();
     }
 
     @Override
