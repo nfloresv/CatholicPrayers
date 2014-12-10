@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.flores.nico.database.Category;
 import com.flores.nico.database.Prayer;
+import com.flores.nico.database.PrayerCategory;
 
 import java.util.List;
 
@@ -38,6 +39,7 @@ public class EditPrayerActivity extends ActionBarActivity implements DialogInter
             prayer.setTitle(title);
             prayer.setText(text);
             prayer.save();
+            generateRelationPrayerCategory(prayer);
             message = getString(R.string.save_prayer_success);
             setResult(RESULT_OK);
             finish();
@@ -52,6 +54,25 @@ public class EditPrayerActivity extends ActionBarActivity implements DialogInter
         builder.setPositiveButton(R.string.btn_acept_dialog, this);
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+    private void generateRelationPrayerCategory (Prayer prayer) {
+        List<Category> categoryList = Category.listAll(Category.class);
+        for (int i = 0; i < categoryList.size(); i++) {
+            List<PrayerCategory> prayerCategories = PrayerCategory.find(PrayerCategory.class,
+                    "prayer = ? and category = ?", String.valueOf(prayer.getId()),
+                    String.valueOf(categoryList.get(i).getId()));
+            if (categoriesSelected[i]) {
+                if (prayerCategories.size() == 0) {
+                    PrayerCategory prayerCategory = new PrayerCategory(categoryList.get(i), prayer);
+                    prayerCategory.save();
+                }
+            } else {
+                for (PrayerCategory prayerCategory : prayerCategories) {
+                    prayerCategory.delete();
+                }
+            }
+        }
     }
 
     @Override
@@ -80,7 +101,17 @@ public class EditPrayerActivity extends ActionBarActivity implements DialogInter
         prayerText = (EditText) findViewById(R.id.prayer_text_et_activity_edit_prayer);
         prayerTitle.setText(prayer.getTitle());
         prayerText.setText(prayer.getText());
-        //TODO change the status of the selected categories
+
+        List<PrayerCategory> prayerCategories = PrayerCategory.find(PrayerCategory.class,
+                "prayer = ?", String.valueOf(prayer.getId()));
+        for (PrayerCategory prayerCategory : prayerCategories) {
+            for (int i = 0; i < categoryList.size(); i++) {
+                Category category = categoryList.get(i);
+                if (category.getId().equals(prayerCategory.getCategory().getId())) {
+                    categoriesSelected[i] = true;
+                }
+            }
+        }
     }
 
     @Override

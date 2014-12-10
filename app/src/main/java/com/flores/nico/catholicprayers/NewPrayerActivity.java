@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.flores.nico.database.Category;
 import com.flores.nico.database.Prayer;
+import com.flores.nico.database.PrayerCategory;
 
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class NewPrayerActivity extends ActionBarActivity implements DialogInterf
         } else {
             Prayer prayer = new Prayer(title, text);
             prayer.save();
-            //TODO save the relation of prayer-categories
+            generateRelationPrayerCategory(prayer);
             message = getString(R.string.save_prayer_success);
             setResult(RESULT_OK);
             finish();
@@ -50,6 +51,25 @@ public class NewPrayerActivity extends ActionBarActivity implements DialogInterf
         builder.setPositiveButton(R.string.btn_acept_dialog, this);
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+    private void generateRelationPrayerCategory (Prayer prayer) {
+        List<Category> categoryList = Category.listAll(Category.class);
+        for (int i = 0; i < categoryList.size(); i++) {
+            List<PrayerCategory> prayerCategories = PrayerCategory.find(PrayerCategory.class,
+                    "prayer = ? and category = ?", String.valueOf(prayer.getId()),
+                    String.valueOf(categoryList.get(i).getId()));
+            if (categoriesSelected[i]) {
+                if (prayerCategories.size() == 0) {
+                    PrayerCategory prayerCategory = new PrayerCategory(categoryList.get(i), prayer);
+                    prayerCategory.save();
+                }
+            } else {
+                for (PrayerCategory prayerCategory : prayerCategories) {
+                    prayerCategory.delete();
+                }
+            }
+        }
     }
 
     @Override
