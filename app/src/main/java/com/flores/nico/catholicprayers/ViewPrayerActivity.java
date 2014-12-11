@@ -10,7 +10,11 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.flores.nico.database.Category;
 import com.flores.nico.database.Prayer;
+import com.flores.nico.database.PrayerCategory;
+
+import java.util.List;
 
 
 public class ViewPrayerActivity extends ActionBarActivity {
@@ -31,13 +35,26 @@ public class ViewPrayerActivity extends ActionBarActivity {
             finish();
         }
 
+        List<PrayerCategory> prayerCategories = PrayerCategory.find(PrayerCategory.class,
+                "prayer = ?", String.valueOf(prayer_id));
+        String message = "";
+        for (PrayerCategory prayerCategory : prayerCategories) {
+            Category category = prayerCategory.getCategory();
+            message += category.getName() + ", ";
+        }
+        if (message.length() > 0) {
+            message = message.substring(0, message.length() - 2);
+        }
+
         Prayer prayer = Prayer.findById(Prayer.class, prayer_id);
         TextView prayerTitle = (TextView) findViewById(R.id.prayer_title_activity_view_prayer);
         TextView prayerText = (TextView) findViewById(R.id.prayer_text_activity_view_prayer);
+        TextView prayerCategory = (TextView) findViewById(R.id
+                .prayer_category_tv_activity_view_prayer);
         prayerTitle.setText(prayer.getTitle());
         prayerText.setText(prayer.getText());
+        prayerCategory.setText(message);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu (Menu menu) {
