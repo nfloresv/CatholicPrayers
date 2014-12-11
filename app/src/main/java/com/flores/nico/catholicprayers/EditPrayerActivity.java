@@ -51,7 +51,7 @@ public class EditPrayerActivity extends ActionBarActivity implements DialogInter
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.prayer_category_selection);
         builder.setMultiChoiceItems(categories, categoriesSelected, this);
-        builder.setPositiveButton(R.string.btn_acept_dialog, this);
+        builder.setPositiveButton(R.string.btn_accept_dialog, this);
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }

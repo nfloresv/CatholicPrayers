@@ -8,7 +8,7 @@
     <string name="loading">Loading…</string>
     <string name="action_example">Example action</string>
     <string name="btn_save">Save</string>
-    <string name="btn_acept_dialog">Ok</string>
+    <string name="btn_accept_dialog">OK</string>
 
     <!-- Gospel Fragment -->
     <string name="saintOfTheDay">Saint of the Day</string>

@@ -11,5 +11,6 @@
     <string name="title_activity_view_category">Category</string>
     <string name="title_activity_edit_category">Edit Category</string>
     <string name="title_activity_new_category">NewCategoryActivity</string>
-    
+    <string name="title_category_prayers">Category Prayers</string>
+
 </resources>

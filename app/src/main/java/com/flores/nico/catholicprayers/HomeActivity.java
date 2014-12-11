@@ -47,30 +47,21 @@ public class HomeActivity extends ActionBarActivity
             mTitle = getString(R.string.title_gospel);
         } else if (position == 1) {
             fragmentManager.beginTransaction()
+                    .replace(R.id.container, CategoryPrayersFragment.newInstance())
+                    .commit();
+            mTitle = getString(R.string.title_category_prayers);
+        } else if (position == 2) {
+            fragmentManager.beginTransaction()
                     .replace(R.id.container, PrayerListFragment.newInstance())
                     .commit();
             mTitle = getString(R.string.title_all_prayers);
-        } else if (position == 2) {
+        } else if (position == 3) {
             fragmentManager.beginTransaction()
                     .replace(R.id.container, CategoryListFragment.newInstance())
                     .commit();
             mTitle = getString(R.string.title_all_categories);
         }
     }
-
-    /*public void onSectionAttached (int number) {
-        switch (number) {
-            case 1:
-                mTitle = getString(R.string.title_section1);
-                break;
-            case 2:
-                mTitle = getString(R.string.title_section2);
-                break;
-            case 3:
-                mTitle = getString(R.string.title_section3);
-                break;
-        }
-    }*/
 
     public void restoreActionBar () {
         ActionBar actionBar = getSupportActionBar();
@@ -107,45 +98,5 @@ public class HomeActivity extends ActionBarActivity
 
         return super.onOptionsItemSelected(item);
     }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    /*public static class PlaceholderFragment extends Fragment {
-        *//**
-     * The fragment argument representing the section number for this
-     * fragment.
-     *//*
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        *//**
-     * Returns a new instance of this fragment for the given section
-     * number.
-     *//*
-        public static PlaceholderFragment newInstance (int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        public PlaceholderFragment () {
-        }
-
-        @Override
-        public View onCreateView (LayoutInflater inflater, ViewGroup container,
-                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_home, container, false);
-            return rootView;
-        }
-
-        @Override
-        public void onAttach (Activity activity) {
-            super.onAttach(activity);
-            ((HomeActivity) activity).onSectionAttached(
-                    getArguments().getInt(ARG_SECTION_NUMBER));
-        }
-    }*/
 
 }
